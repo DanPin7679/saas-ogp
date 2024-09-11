@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {% include 'base/css.html' %}
-    <title>Document</title>
-  </head>
-  <body class="bg-slate-950 text-slate-100">
-    <div class="text-orange-500">OGP</div>
-    <div class="text-white">Optimum Golf Performance</div>
-    {% include 'base/js.html' %}
-  </body>
-</html>
+{% extends 'base.html' %} {% block content %}
+<div class="text-orange-500">OGP</div>
+<div class="text-white">Optimum Golf Performance</div>
+{% endblock content %}
