@@ -24,7 +24,9 @@ if DEBUG:
         "localhost"
     ]
 
-
+CSRF_TRUSTED_ORIGINS = [
+"https://*.railway.app"
+]
 
 # Application definition
 
