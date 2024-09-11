@@ -17,6 +17,7 @@ DEBUG = config("DJANGO_DEBUG", cast=bool)
 ALLOWED_HOSTS = [
     ".railway.app" # https://saas.prod.railway.app
 ]
+
 if DEBUG:
     ALLOWED_HOSTS += [
         "127.0.0.1",
@@ -124,7 +125,7 @@ LOGIN_REDIRECT_URL = "/"
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 #ACCOUNT_EMAIL_VERIFICATION="mandatory"
 #ACCOUNT_EMAIL_SUBJECT_PREFIX="[OGP] "
-#ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_REQUIRED=True
 
 AUTHENTICATION_BACKENDS = [
     # ...
@@ -136,9 +137,7 @@ AUTHENTICATION_BACKENDS = [
     # ...
 ]
 
-SOCIALACCOUNT_PROVIDERS = {
-
-}
+SOCIALACCOUNT_PROVIDERS = {}
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
