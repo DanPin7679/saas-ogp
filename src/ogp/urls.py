@@ -2,11 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from auth import views as auth_views
 
-from .views import home_view
+from landing.views import landing_page
+from playerhome.views import player_home_page
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('accounts/', include('allauth.urls')),
      
-    path("", home_view, name='home')
+    path("", landing_page, name='home'),
 ]
