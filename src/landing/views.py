@@ -1,9 +1,14 @@
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_not_required
 # Create your views here.
+from allauth.account import views as authviews
 from playerhome.views import player_home_page
 from coachhome.views import coach_home_page
 
+login = login_not_required(authviews.login)
+signup = login_not_required(authviews.signup)
+
+@login_not_required
 def landing_page(request):
     user = request.user
     if user.is_authenticated:

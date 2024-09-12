@@ -1,0 +1,55 @@
+{% load widget_tweaks %}
+
+<!-- Define Grid container div -->
+<div
+  class="flex flex-col-reverse md:grid md:grid-cols-4 md:gap-4"
+  id="meetings-container"
+>
+  <!-- 3/4 cols for the table of meetingss -->
+  <div class="col-span-3">
+    {% if meetings %}
+
+    <table class="table">
+      <thead class="text-xs text-white uppercase">
+        <tr>
+          <th class="px-6 py-3">Date</th>
+          <th class="px-6 py-3">Type</th>
+          <th class="px-6 py-3">Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for meeting in meetings %}
+        <tr>
+          <td>{{ meeting.date }}</td>
+          <td>{{ meeting.type }}</td>
+          <td>{{ meeting }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    {% else %}
+
+    <p class="text-2xl text-white">No meetingss found</p>
+
+    {% endif %}
+  </div>
+
+  <!-- 1/4 cols for the filter form -->
+  <div class="col-span-1">
+    <form
+      hx-get="{% url 'meetings-list' %}"
+      hx-target="#meetings-container"
+      hx-swap="outerHTML"
+    >
+      <div class="mb-2 form-control">
+        {{ filter.form.meetings_type|add_label_class:"label text-white" }} {%
+        render_field filter.form.meetings_type class="select bg-gray-50
+        text-gray-900" %}
+      </div>
+
+      <button class="btn btn-success">Filter</button>
+    </form>
+  </div>
+</div>

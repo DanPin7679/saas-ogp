@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     
     #my apps
     "subscriptions",
+    "meetings",
+    "profiles",
     "commando",
     
     # vendor apps
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     "widget_tweaks",
     'slippers',
+    'django_htmx',
 ]
 
 MIDDLEWARE = [
@@ -58,9 +61,11 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.auth.middleware.LoginRequiredMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "allauth.account.middleware.AccountMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 ROOT_URLCONF = "ogp.urls"
